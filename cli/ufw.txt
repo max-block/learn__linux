@@ -1,0 +1,26 @@
+--> Enable firewall
+ufw allow 22
+ufw allow 80
+ufw allow 443
+ufw enable
+ufw status
+
+
+--> delete port
+ufw status numbered
+
+# find number for port
+root@geth-1:~# ufw status numbered
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 22                         ALLOW IN    Anywhere
+[ 2] 30303                      ALLOW IN    Anywhere
+[ 3] 8545                       ALLOW IN    Anywhere
+[ 4] 22 (v6)                    ALLOW IN    Anywhere (v6)
+[ 5] 30303 (v6)                 ALLOW IN    Anywhere (v6)
+[ 6] 8545 (v6)                  ALLOW IN    Anywhere (v6)
+
+ufw delete 5
+ufw delete 3

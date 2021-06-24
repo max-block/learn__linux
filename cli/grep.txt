@@ -1,0 +1,3 @@
+--> Find all files with specifiec text
+grep -rnw '/path/to/somewhere/' -e 'pattern'
+grep -Ril "text-to-find-here" /path/to/search

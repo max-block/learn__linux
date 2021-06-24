@@ -1,0 +1,17 @@
+--> It's impossible RAID1->RAID0
+https://serverfault.com/questions/915284/is-it-possible-to-convert-raid1-to-raid0-without-system-reinstalation
+
+--> Get raid info
+cat /proc/mdstat
+
+
+
+--> Hetzner Rescure mode
+$ installimage
+
+SWRAID 1
+SWRAIDLEVEL 0
+HOSTNAME SER-1
+
+PART /boot ext3 512M
+PART / ext4 all

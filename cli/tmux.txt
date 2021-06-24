@@ -1,0 +1,11 @@
+--> Cheat sheet
+https://gist.github.com/henrik/1967800
+
+--> Attach to old session
+tmux a
+
+--> New window
+ctrl+b, c
+
+--> List windows
+ctrl+b, w

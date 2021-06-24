@@ -1,0 +1,8 @@
+--> edit crontab
+crontab -e
+
+--> view crontab
+crontab -l
+
+--> log
+grep CRON /var/log/syslog

@@ -1,0 +1,16 @@
+--> disable ipv6 on ubuntu (don't work after reboot)
+
+$ sudo vi /etc/sysctl.conf
+---------------------------
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+---------------------------
+$ sudo sysctl -p
+$ ip addr show
+
+--> disable ipv6 via Grub (permanent)
+/etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="ipv6.disable=1"
+$ sudo update-grub
+$ reboot

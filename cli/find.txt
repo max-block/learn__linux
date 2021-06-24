@@ -1,0 +1,2 @@
+--> Find all .git/config files in the path recursively
+find /path/to/projects -path "*/.git/config" -type f

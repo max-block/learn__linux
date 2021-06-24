@@ -1,0 +1,9 @@
+--> List installed packages
+apt list --installed
+
+--> List files of a dep package
+dpkg --listfiles openssh-client
+
+--> Get available package version
+apt update
+apt-cache policy ${package}

@@ -1,0 +1,11 @@
+--> set timezone
+timedatectl set-timezone UTC
+
+--> change hostname
+hostnamectl set-hostname new_name
+
+--> show dns cache
+systemd-resolve --statistics
+
+--> flash dns cache
+systemd-resolve --flush-caches

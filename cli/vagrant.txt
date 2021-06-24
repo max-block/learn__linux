@@ -1,0 +1,9 @@
+--> Init Ubuntu
+mkdir path/to/vm
+cd path/to/vm
+vagrant init ubuntu/focal64
+vagrant up
+vagrant ssh
+
+--> Update box (image)
+vagrant box update --box ubuntu/focal64

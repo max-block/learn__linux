@@ -1,0 +1,6 @@
+https://github.com/sharkdp/fd
+
+It's a replacement for `find`
+
+--> Install on macOS
+brew install fd

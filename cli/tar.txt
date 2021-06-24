@@ -1,0 +1,2 @@
+--> Extract a tar archive into dest folder
+tar -xf $HOME/etc.backup.tar -C /tmp/data

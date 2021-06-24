@@ -1,0 +1,20 @@
+--> generate key
+ssh-keygen -t rsa -b 4096 -C "key1"
+
+--> using a key file
+ssh -i /path/to/key host
+
+--> run remote command and output locally
+ssh host "ls -l /"
+
+--> disable ssh client prompt:
+The authenticity of host '111.222.333.444 (111.222.333.444)' can't be established.
+RSA key fingerprint is f3:cf:58:ae:71:0b:c8:04:6f:34:a3:b2:e4:1e:0c:8b.
+Are you sure you want to continue connecting (yes/no)?
+
+~/.ssh/config
+Host *
+    StrictHostKeyChecking no
+
+--> don't check host key
+$ ssh -o "StrictHostKeyChecking=no" user@host

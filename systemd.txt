@@ -1,0 +1,23 @@
+--> Install a new service
+cp my-app.service /etc/systemd/system
+systemctl enable my-app
+systemctl start my-app
+
+--> View logs
+journalctl -u my-app
+
+--> Reload configs
+systemctl daemon-reload
+
+--> Remove unit
+systemctl stop [servicename]
+systemctl disable [servicename]
+rm /etc/systemd/system/[servicename]
+systemctl daemon-reload
+systemctl reset-failed
+
+--> List enabled services
+systemctl list-unit-files | grep enabled
+
+--> List running services
+systemctl | grep running

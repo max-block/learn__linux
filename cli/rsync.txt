@@ -1,0 +1,2 @@
+1) Copy folder to remote server
+rsync -avzhr --progress path/to/folder/ root@remote-server:/dest/path

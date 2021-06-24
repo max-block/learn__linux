@@ -1,0 +1,12 @@
+--> read file, replace `foo` to `moo` globally, and print it
+sed "s/foo/moo/g" f1.txt
+
+--> replace `foo` to `moo` in text file (update it)
+sed -i "s/foo/moo/g" f1.txt
+
+
+--> replace `foo` to `moo` in text file (update it) (for macos)
+sed -i "" "s/foo/moo/g" f1.txt
+
+--> alternate delimiter a/b/c -> d/e/f
+sed "s+a/b/c+d/e/f+" f1.txt

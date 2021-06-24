@@ -1,0 +1,8 @@
+https://github.com/stedolan/jq
+
+It colorize json output
+
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "chain_getBlock"}' http://localhost:9933/ | jq
+
+--> Install on Ubuntu
+apt install jq

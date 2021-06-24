@@ -1,0 +1,9 @@
+--> Use proxy
+curl --proxy socks5://user:pass@site.com:8888 https://httpbin.org/ip
+curl -x socks5://user:pass@site.com:8888 https://httpbin.org/ip
+
+--> POST
+curl -X POST -H "Content-Type: application/json" -d "{'k1': 'v1', 'k2': 'v2'}" https://httpbin.org/post
+
+--> Add auth token
+curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://www.example.com

@@ -1,0 +1,16 @@
+--> update git repo domain in all .git/config files in the /project folder, for all projects
+find /path/to/projects -path "*/.git/config" -type f -exec sed -i "" "s/old.git-repo-domain.com/new.git-repo-domain.com/g" {} \;
+
+--> Cleanup /boot
+dpkg --list linux-{headers,image,modules,tools}-\* | awk '{ if ($1=="ii") print $2}' | grep -v -e "$(uname -r | cut -d"-" -f1,2)" | xargs sudo dpkg --remove  # use dpkg to remove all but the currently running kernel version
+apt-get install -f  # It's common for apt to be in a broken state after running out of space on /boot
+apt-get autoremove  # It's really common for apt to be broken on a package that should have been removed
+apt-get install -y linux-generic linux-headers-generic linux-image-generic linux-tools-generic  # just in case latest kernel was mysteriously removed (e.g. when you are not running the latest kernel)
+update-grub  # just in case it was not done automatically by dpkg
+
+
+dpkg --list linux-{headers,image,modules,tools}-\* | awk '{ if ($1=="ii") print $2}' | grep -v -e "$(uname -r | cut -d"-" -f1,2)" | xargs sudo dpkg --remove  && apt-get install -f && apt-get autoremove && apt-get install -y linux-generic linux-headers-generic linux-image-generic linux-tools-generic && update-grub
+
+
+  # just in case latest kernel was mysteriously removed (e.g. when you are not running the latest kernel)
+  # just in case it was not done automatically by dpkg

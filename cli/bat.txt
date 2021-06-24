@@ -1,0 +1,7 @@
+https://github.com/sharkdp/bat
+ A cat(1) clone with wings.
+
+
+ --> Install on Ubuntu
+ apt install bat
+ ln -s /usr/bin/batcat /usr/bin/bat
