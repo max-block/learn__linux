@@ -1,0 +1,3 @@
+--> output only pid and command
+ps -o pid,command -x # macos
+ps -o pid,cmd -x # macos
