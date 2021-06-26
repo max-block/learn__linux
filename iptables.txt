@@ -1,0 +1,3 @@
+--> Use SERVER_SECOND_IP address from a server
+iptables -t nat -A POSTROUTING -j SNAT --to-source SERVER_SECOND_IP
+It's also necessary to add some real nameservers like 1.1.1.1,8.8.8.8

@@ -1,0 +1,41 @@
+MAIN_IP_ADDRESS -- the original IP address of a server
+SECOND_IP_ADDRESS -- an additional IP address
+
+Task: The server must use the SECOND_IP_ADDRESS only
+
+
+# add SECOND_IP_ADDRESS to netplan config
+mcedit /etc/netplan/50-cloud-init.yaml
+network:
+    version: 2
+    ethernets:
+        eth0:
+            addresses:
+            - SECOND_IP_ADDRESS
+            dhcp4: true
+
+netplan apply
+
+
+# add public nameservers
+apt install resolvconf
+mcedit /etc/resolvconf/resolv.conf.d/head
+nameserver 8.8.4.4
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+
+systemctl enable resolvconf
+systemctl restart resolvconf
+resolvconf -u
+
+
+
+# send all traffic via the second IP. and disable some ports on the first IP
+apt install iptables-persistent
+iptables -t nat -A POSTROUTING -j SNAT --to-source SECOND_IP_ADDRESS
+iptables -A INPUT -p tcp -d MAIN_IP_ADDRESS --dport 22 -j DROP
+iptables -A INPUT -p tcp -d MAIN_IP_ADDRESS --dport 80 -j DROP
+iptables-save > /etc/iptables/rules.v4
+
+# check it
+curl https://httpbin.org/ip
